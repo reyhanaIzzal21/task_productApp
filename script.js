@@ -239,16 +239,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const name = checkoutForm.name.value.trim();
-        const address = checkoutForm.address.value.trim();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
 
-        if (!name || !address) {
+        if (!name || !phone || !address) {
             alert('Mohon lengkapi semua data pada form checkout.');
             return;
         }
-    let message = `*Pesanan dari ${name}*\n`;
+
+        let message = `Pesanan Baru dari\n`;
+        message += `Nama: ${name}\n`;
+        message += `Nomor Telepon: ${phone}\n`;
         message += `Alamat: ${address}\n\n`;
         message += `*Detail Pesanan:*\n`;
+
+
 
         let total = 0;
         cart.forEach(({product, qty}, idx) => {
@@ -368,6 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Pemuatan Awal ---
     fetchProducts();
 });
+
+
 
 
 
